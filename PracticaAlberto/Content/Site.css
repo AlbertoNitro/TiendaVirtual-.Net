@@ -1,0 +1,511 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #f6f6f6;
+}
+
+h2, th {
+    color: #00775A !important;
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 2%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.separador {
+    height: 3px;
+    background-color: #00775A;
+    border-radius: 10px;
+}
+
+.imgProductoAgotado {
+    border: 5px #d9534f solid !important;
+    border-radius: 100px !important;
+    margin-bottom: 10px;
+}
+
+.imgProductoStockBajo {
+    border: 5px #FBB907 solid !important;
+    border-radius: 100px !important;
+    margin-bottom: 10px;
+}
+
+.imgNormal {
+    border: 5px #00775A solid !important;
+    border-radius: 100px !important;
+    margin-bottom: 10px;
+}
+
+.mensajitoError {
+    color: #d9534f !important;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+.navbar-inverse {
+    background-color: #00775A !important;
+    border-color: #00775A !important;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+        font-weight: bold;
+    }
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #fbb907;
+}
+
+.disabled {
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}
+
+.btnOpcionMenu{
+    margin-top: 10px;
+}
+
+.btnOpcionMenuAdmin {
+    margin-top: 10px !important;
+    font-weight: bold !important;
+}
+
+.btnOpcionMenuAdmin:hover {
+    margin-top: 10px !important;
+    font-weight: bold !important;
+}
+
+.gi-2x {
+    font-size: 2em;
+}
+
+.gi-3x {
+    font-size: 3em;
+}
+
+.gi-4x {
+    font-size: 4em;
+}
+
+.gi-5x {
+    font-size: 5em;
+}
+
+.btnCarrito {
+    border: 3px dashed #fff;
+    border-radius: 10px;
+}
+
+.btnCarrito:hover {
+    border: 3px dashed #FBB907;
+}
+
+
+.botonAlberto {
+    color: #fff;
+    background-color: #fbb907;
+    box-shadow: 0 6px 0 #ab7f07;
+    border-color: #ff0090;
+    border-radius: 10px;
+    height: 50px;
+    transition: all 200ms ease;
+}
+
+.botonAlberto:active {
+        transform: translate(0px, 6px);
+        background-color: #fbb907 !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+}
+
+.botonAlberto:hover {
+        transform: translate(0px, 6px);
+        background-color: #fbb907 !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+}
+
+.textoVerde {
+    color: #00775A !important;
+}
+
+.textoVerdeFluor {
+    color: #2EFE9A !important;
+}
+
+.divide-nav {
+    height: 50px;
+    background-color: #428bca;
+}
+
+.divide-text {
+    color: #fff;
+    line-height: 20px;
+    font-size: 20px;
+    padding: 15px 0;
+}
+
+.affix {
+    top: 50px;
+    width: 100%;
+}
+
+.filler {
+    min-height: 2000px;
+}
+
+.navbar-form {
+    padding-left: 0;
+}
+
+.navbar-collapse {
+    padding-left: 0;
+}
+
+#panelAdmin {
+    background-color: #2EFE9A !important;
+    margin-top: 23px;
+}
+
+.bordearVerdeFluor {
+    border: 2px double #2EFE9A;
+    border-radius: 10px;
+}
+
+.btnOpcionMenu > a {
+    color: #00775A !important;
+}
+
+.botonAmarillo {
+    color: #fff;
+    background-color: #fbb907;
+    box-shadow: 0 6px 0 #ab7f07;
+    border-color: #fbb907;
+    border-radius: 10px;
+    transition: all 200ms ease;
+}
+
+.botonAmarillo:active {
+    transform: translate(0px, 6px);
+    background-color: #fbb907 !important;
+    box-shadow: none;
+    color: #fff !important;
+    transition: all 200ms ease;
+}
+
+.botonAmarillo:hover {
+    transform: translate(0px, 6px);
+    background-color: #fbb907 !important;
+    box-shadow: none;
+    color: #fff !important;
+    transition: all 200ms ease;
+}
+
+.botonRojo {
+    color: #fff;
+    background-color: #ff615d;
+    box-shadow: 0 6px 0 #b54643;
+    border-color: #ff615d;
+    border-radius: 10px;
+    transition: all 200ms ease;
+}
+
+    .botonRojo:active {
+        transform: translate(0px, 6px);
+        background-color: #ff615d !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+    .botonRojo:hover {
+        transform: translate(0px, 6px);
+        background-color: #ff615d !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+.botonAzul {
+    color: #fff;
+    background-color: #54c0ff;
+    box-shadow: 0 6px #428bca;
+    border-color: #54c0ff;
+    border-radius: 10px;
+    transition: all 200ms ease;
+}
+
+    .botonAzul:active {
+        transform: translate(0px, 6px);
+        background-color: #54c0ff !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+    .botonAzul:hover {
+        transform: translate(0px, 6px);
+        background-color: #54c0ff !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+.botonVerde {
+    color: #fff;
+    background-color: #00d7a2;
+    box-shadow: 0 6px 0 #00AD82;
+    border-color: #00d7a2;
+    border-radius: 10px;
+    transition: all 200ms ease;
+}
+
+    .botonVerde:active {
+        transform: translate(0px, 6px);
+        background-color: #00d7a2 !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+    .botonVerde:hover {
+        transform: translate(0px, 6px);
+        background-color: #00d7a2 !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+.negrita {
+    font-weight: bold;
+}
+
+.botonGris {
+    color: #fff;
+    background-color: #bbb;
+    border-color: #bbb;
+    border-radius: 10px;
+}
+
+.botonGris:active {
+        color: #fff !important;
+}
+
+.botonGris:hover {
+    color: #fff !important;
+}
+
+
+.positionAbsolute {
+    position: absolute;
+}
+
+.precio {
+    color: #FBB907;
+    border: 1px dashed #FBB907;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+.nombreProducto {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.botonVerdeOscuro {
+    color: #2EFE9A;
+    background-color: #00775A;
+    box-shadow: 0 6px 0 #01392b;
+    border-color: #00775A;
+    border-radius: 10px;
+    height: 50px;
+    transition: all 200ms ease;
+    margin-right: 5px;
+}
+
+    .botonVerdeOscuro:active {
+        transform: translate(0px, 6px);
+        background-color: #00775A !important;
+        box-shadow: none;
+        color: #2EFE9A !important;
+        transition: all 200ms ease;
+    }
+
+    .botonVerdeOscuro:hover {
+        transform: translate(0px, 6px);
+        background-color: #00775A !important;
+        box-shadow: none;
+        color: #2EFE9A !important;
+        transition: all 200ms ease;
+    }
+
+.botonMorado {
+    color: #fff;
+    background-color: #c600ff;
+    box-shadow: 0 6px 0 #750097;
+    border-color: #c600ff;
+    border-radius: 10px;
+    transition: all 200ms ease;
+}
+
+    .botonMorado:active {
+        transform: translate(0px, 6px);
+        background-color: #c600ff !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+    .botonMorado:hover {
+        transform: translate(0px, 6px);
+        background-color: #c600ff !important;
+        box-shadow: none;
+        color: #fff !important;
+        transition: all 200ms ease;
+    }
+
+.imgUsuario {
+    width: 200px;
+    height: 200px;
+}
+
+.row {
+    width: 100%;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.product, .product--green {
+    box-shadow: 1px 5px 15px #aaa;
+    width: 21%;
+    height: auto;
+    border-radius: 3px;
+    padding: 1.5em;
+    margin: 1em;
+    position: relative;
+    -webkit-box-flex: 1;
+}
+
+.img-responsiveAlberto {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.product--green {
+    background: -webkit-linear-gradient(135deg, #00775A 50%, #00a47c 50%);
+    background: linear-gradient(-45deg, #00775A 50%, #00a47c 50%);
+}
+
+}
+
+    .product img, .product--green img {
+        max-width: 100%;
+        height: auto !important;
+        text-align: center;
+    }
+
+.product_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    color: #fff;
+}
+
+    .product_inner button {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: #FFF;
+        border-radius: 3px;
+        padding: 1em 3em;
+        margin: 1em 0 0 0;
+        background: none;
+        cursor: pointer;
+        -webkit-transition: background ease-in .25s;
+        transition: background ease-in .25s;
+    }
+
+        .product_inner button:hover {
+            background: white;
+            color: #2B2D42;
+        }
+
+        .product_inner button:before {
+            font-family: FontAwesome;
+            content: '\f07A';
+            color: #FFF;
+            position: absolute;
+            font-size: 1.5em;
+            margin: 0 -1.5em;
+        }
+
+        .product_inner button:hover:before {
+            color: #2B2D42;
+        }
+
+.product_overlay {
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateY(-500px);
+    transform: translateY(-500px);
+    opacity: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+    .product_overlay h2 {
+        color: rgba(43, 45, 66, 0.7);
+        font-size: 1.2em;
+        margin: 1em 0;
+    }
+
+    .product_overlay i {
+        color: rgba(43, 45, 66, 0.7);
+        font-size: 1.5em;
+    }

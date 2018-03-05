@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pedidos:</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            Importe
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </th>
+        <th>
+            Id Pedido
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImporteTotal)€
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.ActionLink("Ver pedido", "Details", "Pedidos", new { id = item.Id }, new { @class = "btn botonAzul" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,56 @@
+﻿@model Producto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+
+        <dd>
+            <img widht="100" height="100" src="@(Model.Imagen)">
+        </dd>
+
+
+    </dl>
+    <h3>¿Estás seguro de que quieres eliminarlo?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="btn botonVerde negrita" />
+        @Html.ActionLink("No", "Index", "Productos", null, new { @class = "btn botonRojo" })
+    </div>
+    }
+</div>

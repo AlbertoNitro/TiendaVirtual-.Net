@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class= "textoVerdeFluor btnOpcionMenu bordearVerdeFluor" })
+        </li>
+        <li>
+            <a href='@Url.Action("List", "Pedidos")' class="btnOpcionMenu">
+                <span class="glyphicon glyphicon-list-alt"></span><span> Tus pedidos</span>
+            </a>
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()" class="btnOpcionMenu"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btnOpcionMenu botonAlberto" })</li>
+        <li>
+            <a href='@Url.Action("Login", "Account")' class="btnOpcionMenu" id="loginLink">
+                <span class="glyphicon glyphicon-log-in"></span> <span>Iniciar sesión</span>
+            </a>
+        </li>
+    </ul>
+}

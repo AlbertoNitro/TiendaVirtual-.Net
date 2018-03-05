@@ -1,0 +1,28 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href='@Url.Action("IndexUsers", "Productos")'>
+                <img src="~/Content/img/logo.png" height="40" />
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="btnOpcionMenu"><a>API</a></li>
+                <li class="btnOpcionMenu"><a>Productos</a></li>
+                <li class="btnOpcionMenu"><a>Pedidos</a></li>
+                <li class="btnOpcionMenu"><a>Clientes</a></li>
+                <li>
+                    <a href='@Url.Action("Index", "CarrosCompra")' class="btnCarrito">
+                        <span class="glyphicon glyphicon-shopping-cart gi-2x"></span> <span style="display: inline" class="badge alert-success">@{Html.RenderAction("NumProductosCarroCompra", "CarrosCompra");}</span>
+                    </a>
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>

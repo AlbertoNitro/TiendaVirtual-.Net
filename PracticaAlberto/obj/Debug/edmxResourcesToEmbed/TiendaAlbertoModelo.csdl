@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaAlbertoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pedidoes" Relationship="Self.FK_Id_Cliente" FromRole="Cliente" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="INT_ProductoPedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="FK_INT_Pedido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_INT_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_INT_Pedido" FromRole="INT_ProductoPedido" ToRole="Pedido" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_INT_Producto" FromRole="INT_ProductoPedido" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_Id_Cliente" Type="Int32" Nullable="false" />
+    <Property Name="ImporteTotal" Type="Single" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Id_Cliente" FromRole="Pedido" ToRole="Cliente" />
+    <NavigationProperty Name="INT_ProductoPedido" Relationship="Self.FK_INT_Pedido" FromRole="Pedido" ToRole="INT_ProductoPedido" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="INT_ProductoPedido" Relationship="Self.FK_INT_Producto" FromRole="Producto" ToRole="INT_ProductoPedido" />
+  </EntityType>
+  <Association Name="FK_Id_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="FK_Id_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INT_Pedido">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="INT_ProductoPedido" Type="Self.INT_ProductoPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INT_ProductoPedido">
+        <PropertyRef Name="FK_INT_Pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INT_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="INT_ProductoPedido" Type="Self.INT_ProductoPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INT_ProductoPedido">
+        <PropertyRef Name="FK_INT_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TiendaAlbertoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="INT_ProductoPedido" EntityType="Self.INT_ProductoPedido" />
+    <EntitySet Name="Pedidoes" EntityType="Self.Pedido" />
+    <EntitySet Name="Productoes" EntityType="Self.Producto" />
+    <AssociationSet Name="FK_Id_Cliente" Association="Self.FK_Id_Cliente">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Pedido" EntitySet="Pedidoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INT_Pedido" Association="Self.FK_INT_Pedido">
+      <End Role="Pedido" EntitySet="Pedidoes" />
+      <End Role="INT_ProductoPedido" EntitySet="INT_ProductoPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INT_Producto" Association="Self.FK_INT_Producto">
+      <End Role="Producto" EntitySet="Productoes" />
+      <End Role="INT_ProductoPedido" EntitySet="INT_ProductoPedido" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

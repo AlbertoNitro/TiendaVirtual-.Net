@@ -1,0 +1,64 @@
+﻿@model PracticaAlberto.Models.RegisterViewModel
+@{
+    /**/
+
+    ViewBag.Title = "Registrarse";
+}
+
+<h2 class="textoVerde"><strong>@ViewBag.Title.</strong></h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group textoVerde">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group textoVerde">
+        <label class="col-md-2 control-label">Nombre</label>
+        <div class="col-md-10">
+            <input class="form-control" id="Nombre" name="Nombre" value="" type="text" required>
+        </div>
+    </div>
+
+    <div class="form-group textoVerde">
+        <label class="col-md-2 control-label">Apellidos</label>
+        <div class="col-md-10">
+            <input class="form-control" id="Apellidos" name="Apellidos" value="" type="text" required>
+        </div>
+    </div>
+
+    <div class="form-group textoVerde">
+        <label class="col-md-2 control-label">Direccion</label>
+        <div class="col-md-10">
+            <input class="form-control" id="Direccion" name="Direccion" value="" type="text" required>
+        </div>
+    </div>
+
+    <div class="form-group textoVerde">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group textoVerde">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn botonVerde negrita" value="Registrarse" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

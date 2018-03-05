@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Producto>
+
+@{
+    ViewBag.Title = "Tu carrito:";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tu carrito:</h2>
+
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                Acciones
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Cantidad == 0)
+                    {
+                        <span class="label label-danger positionAbsolute">AGOTADO</span>
+                    }
+                    else if (item.Cantidad >= 1 && item.Cantidad <= 10)
+                    {
+                        <span class="label label-warning positionAbsolute">ÚLTIMAS UNIDADES</span>
+                    }
+                    else
+                    {
+                        //vacia aposta
+                    }
+                    @if (item.Cantidad == 0)
+                {
+                    <img class="img-circle imgProductoAgotado" widht="100" height="100" src="@(item.Imagen)">
+                }
+                else if (item.Cantidad >= 1 && item.Cantidad <= 10)
+                {
+                    <img class="img-circle imgProductoStockBajo" widht="100" height="100" src="@(item.Imagen)">
+                }
+                else
+                {
+                    <img class="img-circle imgNormal" widht="100" height="100" src="@(item.Imagen)">
+                }
+                </td>
+                <td>
+                    <span><strong>@(item.Nombre)</strong></span>
+                </td>
+                <td>
+                    @Html.ActionLink("Detalles", "DetailsProduct", "CarrosCompra", new { id = item.Id }, new { @class = "btn botonAzul" })
+                    @Html.ActionLink("Eliminar", "DeleteProduct", "CarrosCompra", new { id = item.Id }, new { @class = "btn botonRojo" })
+                </td>
+                <td>
+                    <span class="precio">@(item.Precio)€</span>
+                </td>
+            </tr>
+        }
+    </table>
+} else
+{
+    <h4 class="text-center">(Vacio)</h4>
+}
+    
+@if (Model.Count() > 0)
+{
+        <hr class="separador" />
+        <h4 style="text-align: right"><span style="margin-right: 20px;">Importe Total: </span><span><strong>@ViewData["importeTotal"]€</strong></span></h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-10">
+                    @Html.ActionLink("Finalizar compra", "Create", "Pedidos", null, new { @class = "btn botonVerde negrita", style = "margin-top: 30px;" })
+                </div>
+            </div>
+        </div>
+}
+

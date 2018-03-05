@@ -1,0 +1,64 @@
+﻿@model Producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)€
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+
+        <dd>
+            @if (Model.Cantidad == 0)
+                    {
+                        <span class="label label-danger positionAbsolute">AGOTADO</span>
+                    }
+                    else if (Model.Cantidad >= 1 && Model.Cantidad <= 10)
+                    {
+                        <span class="label label-warning positionAbsolute">ÚLTIMAS UNIDADES</span>
+                    }
+                    else
+                    {
+                        //vacia aposta
+                    }
+                    @if (Model.Cantidad == 0)
+                    {
+                        <img class="img-circle imgProductoAgotado" widht="200" height="200" src="@(Model.Imagen)">
+                    }
+                    else if (Model.Cantidad >= 1 && Model.Cantidad <= 10)
+                    {
+                        <img class="img-circle imgProductoStockBajo" widht="200" height="200" src="@(Model.Imagen)">
+                    }
+                    else
+                    {
+                        <img class="img-circle imgNormal" widht="100" height="200" src="@(Model.Imagen)">
+                    }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver", "Index", "CarrosCompra", null, new { @class = "btn botonMorado" })
+</p>

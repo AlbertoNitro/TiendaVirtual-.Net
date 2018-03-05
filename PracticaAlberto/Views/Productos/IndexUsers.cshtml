@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Producto>
+
+@{
+    ViewBag.Title = "Tienda Virtual";
+}
+
+<h2><span class="glyphicon glyphicon-home"></span> Tienda Virtual</h2>
+
+<div class='row'>
+    @foreach (var item in Model)
+    {
+        
+            <div class='product--green'>
+                <div class='product_inner'>
+                    <a href='@Url.Action("DetailsUsers", "Productos", new { id = item.Id })' title="Ver detalles">
+                        @if (item.Cantidad == 0)
+                        {
+                            <img class="img-circle imgProductoAgotado imgUsuario img-responsiveAlberto" src="@(item.Imagen)">
+                        }
+                        else if (item.Cantidad >= 1 && item.Cantidad <= 10)
+                        {
+                            <img class="img-circle imgProductoStockBajo imgUsuario img-responsiveAlberto" src="@(item.Imagen)">
+                        }
+                        else
+                        {
+                            <img class="img-circle imgNormal imgUsuario img-responsiveAlberto" src="@(item.Imagen)">
+                        }
+                    </a>
+                    @if (item.Cantidad == 0)
+                    {
+                        <span class="label label-danger positionAbsolute" style="font-size: 16px">AGOTADO</span>
+                    }
+                    else if (item.Cantidad >= 1 && item.Cantidad <= 10)
+                    {
+                        <span class="label label-warning positionAbsolute" style="font-size: 16px">ÚLTIMAS UNIDADES</span>
+                    }
+                    else
+                    {
+                        //vacia aposta
+                    }
+                    <div style="display: inline">
+                        @if (item.Cantidad != 0)
+                        {
+                            @Html.ActionLink("Añadir al carro", "AddProduct", "CarrosCompra", new { id = item.Id }, new { @class = "btn botonVerde negrita" })
+                        }
+                        else
+                        {
+                            <a class="btn botonGris disabled" disabled="disabled">Añadir al carro</a>
+                        }
+                    </div>
+                    <span class="nombreProducto">@item.Nombre</span>
+                    <span class="precio">@(item.Precio)€</span>
+                </div>
+            </div>
+        
+    }
+</div>
+
+
+
